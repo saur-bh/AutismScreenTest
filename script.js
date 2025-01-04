@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const parentPhone = document.getElementById("parentPhone").value;
     const parentEmail = document.getElementById("parentEmail").value;
     const city = document.getElementById("city").value;
-
+    console.log(childName, childAge, childGender, parentPhone, parentEmail, city);
     return {
       childName,
       childAge,

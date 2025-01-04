@@ -119,8 +119,10 @@ body {
 .retry-btn:hover {
   background-color: #218838;
 }
-
-// Remove the hidden class from retry button
+#noButton, #yesButton {
+  font-size: 20px; /* Increase font size */
+  padding: 15px 30px; /* Increase padding */
+}
 .retry-btn.hidden {
   display: inline-block;
 }
@@ -184,5 +186,6 @@ form button {
   form input, form select {
     padding: 8px;
   }
+
 
 }
