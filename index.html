@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ADHD Screening Quiz</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <div class="quiz-container">
@@ -21,35 +22,36 @@
             <button id="yesButton" class="btn">Yes</button>
         </div>
 
-        <button id="resetButton" class="btn reset-btn">Reset Quiz</button>
-    </div>
+        <div id="resultContainer" class="hidden">
+            <h1>Quiz Result</h1>
+            <p id="resultText"></p>
+            <form id="userForm" action="/submit" method="POST">
+                <label for="childName">Child's Name</label>
+                <input type="text" id="childName" name="childName" required>
+                <label for="childAge">Child's Age</label>
+                <input type="number" id="childAge" name="childAge" required>
+                <label for="childGender">Child's Gender</label>
+                <select id="childGender" name="childGender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+                <label for="parentPhone">Parent's Phone Number</label>
+                <input type="tel" id="parentPhone" name="parentPhone" required>
+                <label for="parentEmail">Parent's Email</label>
+                <input type="email" id="parentEmail" name="parentEmail" required>
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" required>
+                <p>We value your privacy and will not spam or call without your consent.</p>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+            <p>Follow us on:</p>
+            <a href="https://www.instagram.com/aaryavartcenterforautism/" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> | 
+            <a href="https://wa.me/917607293336" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
 
-    <div id="resultContainer" class="hidden">
-        <h1>Quiz Result</h1>
-        <p id="resultText"></p>
-        <form id="userForm" action="/submit" method="POST">
-            <label for="childName">Child's Name</label>
-            <input type="text" id="childName" name="childName" required>
-            <label for="childAge">Child's Age</label>
-            <input type="number" id="childAge" name="childAge" required>
-            <label for="childGender">Child's Gender</label>
-            <select id="childGender" name="childGender" required>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-            </select>
-            <label for="parentPhone">Parent's Phone Number</label>
-            <input type="tel" id="parentPhone" name="parentPhone" required>
-            <label for="parentEmail">Parent's Email</label>
-            <input type="email" id="parentEmail" name="parentEmail" required>
-            <label for="city">City</label>
-            <input type="text" id="city" name="city" required>
-            <p>We value your privacy and will not spam or call without your consent.</p>
-            <button type="submit" class="btn">Submit</button>
-        </form>
-        <p>Follow us on:</p>
-        <a href="https://www.instagram.com/aaryavartcenterforautism/" target="_blank">Instagram</a> | 
-        <a href="https://wa.me/917607293336" target="_blank">WhatsApp</a>
+        <button id="retryButton" class="btn retry-btn">Retry Quiz</button>
+        <button id="resetButton" class="btn reset-btn hidden">Reset Quiz</button>
     </div>
 
     <script src="script.js"></script>

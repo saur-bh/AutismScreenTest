@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const resultContainer = document.getElementById("resultContainer");
   const resultText = document.getElementById("resultText");
   const resetButton = document.getElementById("resetButton");
+  const retryButton = document.getElementById("retryButton");
   const controls = document.querySelector(".controls");
   const yesButton = document.getElementById("yesButton");
   const noButton = document.getElementById("noButton");
@@ -85,31 +86,50 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let resultImage;
     let feedbackMessage;
+    let feedbackColor;
 
     // Determine the result based on the yesCount
     if (yesCount <= 4) {
         resultImage = "./img/parent_with_child.png";
         feedbackMessage = "Likely typical behavior; no immediate concerns.";
+        feedbackColor = "green";
     } else if (yesCount <= 9) {
         resultImage = "./img/female_child.png"; // Adjust based on context
         feedbackMessage = "Some signs of ADHD; consider monitoring and seeking professional advice.";
-    } else {
+        feedbackColor = "orange";
+    } else if (yesCount <= 15) {
         resultImage = "./img/male_child.png"; // Adjust based on context
         feedbackMessage = "Strong signs of ADHD; consult a pediatrician, psychologist, or psychiatrist for a detailed evaluation.";
+        feedbackColor = "red";
+    } else {
+        resultImage = "./img/retry.png";
+        feedbackMessage = "Invalid quiz result. Please try again.";
+        feedbackColor = "gray";
     }
 
-    // Display the result
+    // Display the result with styling
     resultText.innerHTML = `
-        <img src="${resultImage}" alt="Result Image" style="width: 100%; max-width: 300px; margin-bottom: 20px;">
-        <h2>Quiz Result</h2>
-        <p>Your child scored <strong>${yesCount}</strong> Yes answers.</p>
-        <p><strong>${feedbackMessage}</strong></p>
-        <p>Child Name: ${formData.childName}</p>
-        <p>Age: ${formData.childAge}</p>
-        <p>City: ${formData.city}</p>
+        <div style="text-align: center; padding: 20px; border: 2px solid ${feedbackColor}; border-radius: 10px;">
+            <img src="${resultImage}" alt="Result Image" style="width: 100%; max-width: 300px; margin-bottom: 20px;">
+            <p style="color: ${feedbackColor}; font-weight: bold;">${feedbackMessage}</p>
+            <p><strong>Child Name:</strong> ${formData.childName}</p>
+            <p><strong>Age:</strong> ${formData.childAge}</p>
+            <p><strong>City:</strong> ${formData.city}</p>
+        </div>
     `;
     resetButton.classList.remove("hidden"); // Show Reset button after result
-}
+    retryButton.classList.remove("hidden"); // Show Retry button after result
+    resetButton.style.position = "fixed"; // Ensure reset button is at the bottom
+    resetButton.style.bottom = "20px";
+    resetButton.style.left = "50%";
+    resetButton.style.transform = "translateX(-50%)";
+
+    // Add glitter effect
+    resultContainer.classList.add("glitter-effect");
+
+    // Remove form from the page
+    document.getElementById("userForm").remove();
+  }
 
   // Collect Form Data
   function getFormData() {
@@ -131,15 +151,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Attach event listener to the form
-  document.getElementById("userForm").addEventListener("submit", (e) => {
-    e.preventDefault(); // Prevent default form submission
+  const userForm = document.getElementById("userForm");
+  if (userForm) {
+    userForm.addEventListener("submit", (e) => {
+      e.preventDefault(); // Prevent default form submission
 
-    // Get the form data
-    const formData = getFormData();
+      // Get the form data
+      const formData = getFormData();
 
-    // Show the result after collecting form data
-    showResult(formData);
-  });
+      // Show the result after collecting form data
+      showResult(formData);
+    });
+  }
 
   // Reset Quiz
   resetButton.addEventListener("click", () => {
@@ -150,6 +173,20 @@ document.addEventListener("DOMContentLoaded", () => {
     resultContainer.classList.add("hidden");
     quizContainer.classList.remove("hidden");
     resetButton.classList.add("hidden");
+    controls.classList.remove("hidden"); // Show Yes/No buttons again
+    document.getElementById("userForm").classList.remove("hidden"); // Show form again
+  });
+
+  // Retry Quiz
+  retryButton.addEventListener("click", () => {
+    currentQuestion = 0;
+    yesCount = 0;
+    loadQuiz();
+    updateProgress();
+    resultContainer.classList.add("hidden");
+    quizContainer.classList.remove("hidden");
+    controls.classList.remove("hidden"); // Show Yes/No buttons again
+    document.getElementById("userForm").classList.remove("hidden"); // Show form again
   });
 
   // Event listeners for Yes and No buttons
@@ -159,4 +196,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Load Quiz and Initialize Progress Bar
   loadQuiz();
   updateProgress();
+
+  const targetElement = document.querySelector('.retry-btn');
+  if (targetElement) {
+    targetElement.addEventListener('click', function() {
+      // ...existing code...
+    });
+  }
 });

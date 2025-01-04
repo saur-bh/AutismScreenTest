@@ -10,6 +10,8 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  min-height: 100vh;
+  justify-content: space-between;
 }
 
 .progress-bar {
@@ -65,6 +67,10 @@ body {
   gap: 20px;
 }
 
+.controls.hidden {
+  display: none;
+}
+
 .btn {
   padding: 10px 20px;
   background-color: #007bff;
@@ -84,4 +90,79 @@ body {
 
 .reset-btn:hover {
   background-color: #c0392b;
+}
+
+.retry-btn {
+  background-color: #28a745;
+}
+
+.retry-btn:hover {
+  background-color: #218838;
+}
+
+// Remove the hidden class from retry button
+.retry-btn.hidden {
+  display: inline-block;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+form label {
+  font-weight: bold;
+}
+
+form input, form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  align-self: center;
+}
+
+.glitter-effect {
+  animation: glitter 1s infinite;
+}
+
+@keyframes glitter {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5), 0 0 10px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  .quiz {
+    width: 100%;
+    height: auto;
+  }
+
+  .card {
+    padding: 10px;
+  }
+
+  .btn {
+    padding: 8px 16px;
+  }
+
+  form {
+    gap: 5px;
+  }
+
+  form input, form select {
+    padding: 8px;
+  }
+
 }
