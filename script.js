@@ -69,7 +69,9 @@ document.addEventListener("DOMContentLoaded", () => {
   function showForm() {
     quizContainer.classList.add("hidden");
     controls.classList.add("hidden"); // Hide Yes/No buttons
-    resultContainer.classList.remove("hidden");
+    if (resultContainer) {
+      resultContainer.classList.remove("hidden");
+    }
 
     resultText.innerHTML = `
       <h2>Thank you for completing the quiz!</h2>
@@ -77,6 +79,20 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
 
     document.getElementById("userForm").classList.remove("hidden");
+
+    // Attach event listener to the form
+    const userForm = document.getElementById("userForm");
+    if (userForm) {
+      userForm.addEventListener("submit", (e) => {
+        e.preventDefault(); // Prevent default form submission
+
+        // Get the form data
+        const formData = getFormData();
+
+        // Show the result after collecting form data
+        showResult(formData);
+      });
+    }
   }
 
   // Show Result After Form Submission
@@ -125,7 +141,9 @@ document.addEventListener("DOMContentLoaded", () => {
     resetButton.style.transform = "translateX(-50%)";
 
     // Add glitter effect
-    resultContainer.classList.add("glitter-effect");
+    if (resultContainer) {
+      resultContainer.classList.add("glitter-effect");
+    }
 
     // Remove form from the page
     document.getElementById("userForm").remove();
@@ -150,20 +168,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  // Attach event listener to the form
-  const userForm = document.getElementById("userForm");
-  if (userForm) {
-    userForm.addEventListener("submit", (e) => {
-      e.preventDefault(); // Prevent default form submission
-
-      // Get the form data
-      const formData = getFormData();
-
-      // Show the result after collecting form data
-      showResult(formData);
-    });
-  }
-
   // Reset Quiz
   resetButton.addEventListener("click", () => {
     currentQuestion = 0;
@@ -174,7 +178,10 @@ document.addEventListener("DOMContentLoaded", () => {
     quizContainer.classList.remove("hidden");
     resetButton.classList.add("hidden");
     controls.classList.remove("hidden"); // Show Yes/No buttons again
-    document.getElementById("userForm").classList.remove("hidden"); // Show form again
+    const userForm = document.getElementById("userForm");
+    if (userForm) {
+      userForm.classList.remove("hidden"); // Show form again
+    }
   });
 
   // Retry Quiz
@@ -186,7 +193,10 @@ document.addEventListener("DOMContentLoaded", () => {
     resultContainer.classList.add("hidden");
     quizContainer.classList.remove("hidden");
     controls.classList.remove("hidden"); // Show Yes/No buttons again
-    document.getElementById("userForm").classList.remove("hidden"); // Show form again
+    const userForm = document.getElementById("userForm");
+    if (userForm) {
+      userForm.classList.remove("hidden"); // Show form again
+    }
   });
 
   // Event listeners for Yes and No buttons
