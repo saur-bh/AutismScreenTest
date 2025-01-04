@@ -38,29 +38,45 @@ body {
 
 .card {
   position: relative;
-  width: 100%;
+  width: 80%;
+  margin: 20px auto;
+  padding: 20px;
   height: 100%;
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  text-align: center;
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease-in-out;
+
 }
 /* Show only the first card */
 .card:not(:first-child) {
   display: none;
 }
-
-.card img {
-  width: 80%;
-  height: auto;
-  border-radius: 10px;
+.card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
-
+.card img {
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+.card p {
+  font-size: 18px;
+  line-height: 1.5;
+}
+.card.swipe-left {
+  transform: translateX(-100%);
+}
+.card.swipe-right {
+  transform: translateX(100%);
+}
 .hidden {
   display: none;
 }
