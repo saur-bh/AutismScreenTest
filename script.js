@@ -9,6 +9,34 @@ document.addEventListener("DOMContentLoaded", () => {
   const controls = document.querySelector(".controls");
   const yesButton = document.getElementById("yesButton");
   const noButton = document.getElementById("noButton");
+  // Swipe functionality
+  let startX;
+
+  function handleTouchStart(event) {
+    startX = event.touches[0].clientX;
+  }
+
+  function handleTouchMove(event) {
+    if (!startX) return;
+
+    const currentX = event.touches[0].clientX;
+    const diffX = startX - currentX;
+
+    if (diffX > 50) {
+      // Swipe left
+      quizContainer.children[0].classList.add("swipe-left");
+      handleAnswer("no");
+    } else if (diffX < -50) {
+      // Swipe right
+      quizContainer.children[0].classList.add("swipe-right");
+      handleAnswer("yes");
+    }
+
+    startX = null;
+  }
+
+  quizContainer.addEventListener("touchstart", handleTouchStart, false);
+  quizContainer.addEventListener("touchmove", handleTouchMove, false);
 
   // State variables
   let currentQuestion = 0;
@@ -213,4 +241,6 @@ document.addEventListener("DOMContentLoaded", () => {
       // ...existing code...
     });
   }
+
+  
 });
