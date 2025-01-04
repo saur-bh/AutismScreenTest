@@ -66,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
       .map(
         (q, index) => `
           <div class="card" style="z-index: ${questions.length - index};">
-              <h3>Question ${q.id}</h3>
               <img src="${q.img}" alt="Question Image">
               <p>${q.text}</p>
           </div>`
