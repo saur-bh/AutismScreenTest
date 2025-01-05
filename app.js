@@ -215,8 +215,45 @@ const validateAndCalculateResult = (e) => {
     // If any validation failed, stop here
     if (!isValid) return;
 
+  // Prepare data for submission
+  const data = {
+    parentName,
+    childName,
+    childAge,
+    childGender,
+    email,
+    phone,
+    cityName,
+    yesCount,
+};
+
+// Send data to Google Sheet
+sendDataToGoogleSheet(data);
+
+
     // Proceed to calculate the result if all fields are valid
     calculateResult(e);
+};
+const sendDataToGoogleSheet = async (data) => {
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxM-jbz0StRPuwd347eUQQq8hVifQJbr3QqK94dEqHlqKs1ZZU9CztqvqATFiaU0JqKyg/exec'; // Replace with your Apps Script Web App URL
+    try {
+        const response = await fetch(scriptURL, {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+        const result = await response.json();
+        if (result.status === 'success') {
+            alert('Data saved successfully!');
+        } else {
+            alert('Failed to save data.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+    }
 };
 // Start the quiz
 renderQuestion();
