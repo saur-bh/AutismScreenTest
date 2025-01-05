@@ -246,13 +246,13 @@ const sendDataToGoogleSheet = async (data) => {
         });
         const result = await response.json();
         if (result.status === 'success') {
-            alert('Data saved successfully!');
+            console.log('Data saved successfully!');
         } else {
-            alert('Failed to save data.');
+            console.log('Failed to save data.');
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('An error occurred. Please try again.');
+        console.log('An error occurred. Please try again.');
     }
 };
 // Start the quiz
