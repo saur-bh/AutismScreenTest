@@ -46,30 +46,34 @@ const answer = (yes) => {
 
 const renderResultForm = () => {
     app.innerHTML = `
-        <form id="resultForm" class="space-y-4">
-            <h2 class="text-xl font-bold text-center">Your Details</h2>
+        <form id="resultForm" class="space-y-6 px-4 py-6 bg-white rounded-lg shadow-lg max-w-md mx-auto">
+            <h2 class="text-2xl font-bold text-center text-gray-800">Your Details</h2>
 
             <!-- Parent Name -->
             <div>
-                <input type="text" id="name" placeholder="Your Name" class="w-full border p-2 rounded">
+                <label for="name" class="block text-sm font-medium text-gray-700">Your Name</label>
+                <input type="text" id="name" placeholder="Enter your name" class="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <p id="nameError" class="text-red-500 text-sm mt-1 hidden">This field is required.</p>
             </div>
 
             <!-- Child Name -->
             <div>
-                <input type="text" id="childName" placeholder="Child's Name" class="w-full border p-2 rounded">
+                <label for="childName" class="block text-sm font-medium text-gray-700">Child's Name</label>
+                <input type="text" id="childName" placeholder="Enter child's name" class="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <p id="childNameError" class="text-red-500 text-sm mt-1 hidden">This field is required.</p>
             </div>
 
             <!-- Child Age -->
             <div>
-                <input type="number" id="age" placeholder="Child's Age" class="w-full border p-2 rounded">
+                <label for="age" class="block text-sm font-medium text-gray-700">Child's Age</label>
+                <input type="number" id="age" placeholder="Enter child's age" class="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <p id="ageError" class="text-red-500 text-sm mt-1 hidden">This field is required.</p>
             </div>
 
             <!-- Gender -->
             <div>
-                <select id="gender" class="w-full border p-2 rounded">
+                <label for="gender" class="block text-sm font-medium text-gray-700">Gender</label>
+                <select id="gender" class="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <option value="">Select Gender</option>
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -79,28 +83,34 @@ const renderResultForm = () => {
 
             <!-- Email -->
             <div>
-                <input type="email" id="email" placeholder="Email" class="w-full border p-2 rounded">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <input type="email" id="email" placeholder="Enter email address" class="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <p id="emailError" class="text-red-500 text-sm mt-1 hidden">Please provide a valid email address.</p>
             </div>
 
             <!-- Phone -->
             <div>
-                <input type="tel" id="phone" placeholder="Phone Number" class="w-full border p-2 rounded">
-                <p id="phoneError" class="text-red-500 text-sm mt-1 hidden">Please input phone number without +91 or 0 in start.</p>
+                <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                <input type="tel" id="phone" placeholder="Enter phone number" class="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <p id="phoneError" class="text-red-500 text-sm mt-1 hidden">Please provide  phone number without +91 or  0 in starting.</p>
+            </div>
+             <!-- City -->
+            <div>
+                <label for="city" class="block text-sm font-medium text-gray-700">City</label>
+                <input type="text" id="cityName" placeholder="Enter city " class="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <p id="cityNameError" class="text-red-500 text-sm mt-1 hidden">This field is required.</p>
             </div>
 
             <!-- Submit Button -->
-            <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded-lg w-full">Submit</button>
+            <button type="submit" class="w-full bg-blue-500 text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-600 focus:ring-4 focus:ring-blue-300 focus:outline-none">Submit</button>
         </form>
-        <div class="text-center mt-6">
-            <button onclick="retryQuiz()" class="bg-gray-500 text-white px-6 py-2 rounded-lg">Retry Quiz</button>
+        <div class="text-center mt-4">
+            <button onclick="retryQuiz()" class="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-600 focus:ring-4 focus:ring-gray-300">Retry Quiz</button>
         </div>
     `;
 
-    // Add event listener for form submission
     document.getElementById("resultForm").addEventListener("submit", validateAndCalculateResult);
 };
-
 const calculateResult = (e) => {
     e.preventDefault();
      // Collect form data
@@ -164,6 +174,7 @@ const validateAndCalculateResult = (e) => {
     const childGender = document.getElementById("gender").value;
     const email = document.getElementById("email").value.trim();
     const phone = document.getElementById("phone").value.trim();
+    const cityName = document.getElementById("cityName").value.trim();
 
     // Validation flags
     let isValid = true;
@@ -194,6 +205,10 @@ const validateAndCalculateResult = (e) => {
     }
     if (!phone || !/^\d{10}$/.test(phone)) {
         document.getElementById("phoneError").classList.remove("hidden");
+        isValid = false;
+    }
+    if (!cityName) {
+        document.getElementById("cityNameError").classList.remove("hidden");
         isValid = false;
     }
 
