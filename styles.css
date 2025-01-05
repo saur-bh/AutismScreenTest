@@ -38,10 +38,12 @@ body {
 
 .card {
   position: relative;
-  width: 80%;
+  width: 90%; /* Increase width */
+  max-width: 700px; /* Increase max-width for larger screens */
+  max-height: 100%; /* Ensure card does not exceed the container height */
   margin: 20px auto;
-  padding: 20px;
-  height: 100%;
+  padding: 30px; /* Increase padding */
+  height: auto; /* Adjust height to auto */
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -50,9 +52,7 @@ body {
   text-align: center;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
   transition: transform 0.3s ease-in-out;
-
 }
 /* Show only the first card */
 .card:not(:first-child) {
@@ -66,16 +66,14 @@ body {
   width: 100%;
   max-width: 300px;
   margin-bottom: 20px;
+  border-radius: 50%; /* Make the image circular */
 }
 .card p {
-  font-size: 18px;
-  line-height: 1.5;
-}
-.card.swipe-left {
-  transform: translateX(-100%);
-}
-.card.swipe-right {
-  transform: translateX(100%);
+  font-size: 15px;
+  line-height: 1;
+  word-wrap: break-word; /* Ensure text wraps properly */
+  max-width: 100%; /* Ensure text does not overflow */
+  white-space: normal; /* Ensure text wraps to the next line */
 }
 .hidden {
   display: none;
@@ -118,10 +116,6 @@ body {
 
 .retry-btn:hover {
   background-color: #218838;
-}
-#noButton, #yesButton {
-  font-size: 20px; /* Increase font size */
-  padding: 15px 30px; /* Increase padding */
 }
 .retry-btn.hidden {
   display: inline-block;
@@ -173,6 +167,7 @@ form button {
 
   .card {
     padding: 10px;
+    max-width: 100%; /* Ensure card fits within smaller screens */
   }
 
   .btn {
