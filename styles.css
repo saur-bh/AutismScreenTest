@@ -117,7 +117,6 @@ body {
 .retry-btn:hover {
   background-color: #218838;
 }
-
 .retry-btn.hidden {
   display: inline-block;
 }
@@ -182,5 +181,6 @@ form button {
   form input, form select {
     padding: 8px;
   }
+
 
 }
