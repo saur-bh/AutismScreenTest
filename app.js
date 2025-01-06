@@ -131,7 +131,7 @@ const calculateResult = (e) => {
         feedbackColor = "orange";
     } else {
         resultImage = "./img/male_child.png";
-        feedbackMessage = ` Hello ${parentName} <br> Strong  symptoms of autism  is seen with ${childName}.</br> <p>Seek professional advice immediately.</p>`;
+        feedbackMessage = ` Hello ${parentName} <br> Strong symptoms  are seen with ${childName}.</br>`;
         feedbackColor = "red";
     }
 
@@ -149,7 +149,9 @@ const calculateResult = (e) => {
                     <a href="https://www.instagram.com/aaryavartcenterforautism/" target="_blank" class="w-full sm:w-auto bg-pink-500 text-white px-6 py-2 rounded-lg">Instagram</a> 
                  `
                     : `
-                     <p class="mt-6 text-2xl font-bold text-gray-800">🌟 Get a Detailed Evaluation for  ${childName}🌟</p>
+                     <p class="mt-6 text-2xl font-bold text-blue-600">
+    🌟 <span style="color: #ff5722;">Book Detailed Evaluation of ${childName}</span> 🌟
+</p>
             <p class="mt-2 text-lg text-gray-600">Let’s make a difference together!. WhatsApp to begin his journey with us</p>
             <div class="flex flex-col sm:flex-row justify-between items-center mt-6 space-y-4 sm:space-y-0 sm:space-x-4">
                 <button onclick="retryQuiz()" class="w-full sm:w-auto bg-gray-500 text-white px-6 py-2 rounded-lg">Retry Quiz</button>
