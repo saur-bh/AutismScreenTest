@@ -1,21 +1,21 @@
 const app = document.getElementById("app");
 
 const questions = [
-    { id: 1, text: "Does your child often struggle to focus on tasks like studying or even fun activities?", img: "./img/placeholder1.png" },
-    { id: 2, text: "Does your child get easily distracted, like leaving homework unfinished to watch TV or play?", img: "./img/placeholder2.png" },
-    { id: 3, text: "When you talk to your child, do they often seem to be in their own world, not paying attention?", img: "./img/placeholder3.png" },
-    { id: 4, text: "Does your child often start a drawing or project but lose interest halfway?", img: "./img/placeholder4.png" },
-    { id: 5, text: "Do you frequently find your child misplacing important things, like pencils or school notebooks?", img: "./img/placeholder5.png" },
-    { id: 6, text: "Does your child get distracted by small things, like noises or people walking by?", img: "./img/placeholder6.png" },
-    { id: 7, text: "Does your child often fidget with their hands, legs, or keep adjusting their posture when sitting?", img: "./img/placeholder7.png" },
-    { id: 8, text: "Does your child frequently get up during class or meals, even when asked to stay seated?", img: "./img/placeholder8.png" },
-    { id: 9, text: "Does your child often run around or climb furniture, even when it’s not the right time or place?", img: "./img/placeholder9.png" },
-    { id: 10, text: "Do you feel like your child is always on the go, as if they have unlimited energy?", img: "./img/placeholder10.png" },
-    { id: 11, text: "Does your child talk so much that it’s hard for others to get a word in?", img: "./img/placeholder11.png" },
-    { id: 12, text: "Does your child often blurt out answers in class or interrupt before someone finishes speaking?", img: "./img/placeholder12.png" },
-    { id: 13, text: "Does your child find it hard to wait their turn during games or group activities?", img: "./img/placeholder13.png" },
-    { id: 14, text: "Does your child interrupt conversations or barge into discussions frequently?", img: "./img/placeholder14.png" },
-    { id: 15, text: "Does your child sometimes take risks, like climbing walls or touching things they shouldn’t, without thinking of the consequences?", img: "./img/placeholder15.png" },
+    { id: 1, text: "Does the individual avoid making eye contact?", img: "./img/placeholder1.png" },
+    { id: 2, text: "Does the individual prefer to be alone rather than engaging with others?", img: "./img/placeholder2.png" },
+    { id: 3, text: "Does the individual have difficulty understanding others’ facial expressions or body language?", img: "./img/placeholder3.png" },
+    { id: 4, text: "Does the individual rarely respond when their name is called?", img: "./img/placeholder4.png" },
+    { id: 5, text: "Does the individual seem uninterested in playing with or talking to peers?", img: "./img/placeholder5.png" },
+    { id: 6, text: "Does the individual struggle to start or maintain conversations?", img: "./img/placeholder6.png" },
+    { id: 7, text: "Does the individual repeat words or phrases they hear (echolalia)?", img: "./img/placeholder7.png" },
+    { id: 8, text: "Does the individual use gestures less frequently to communicate (e.g., pointing, waving)?", img: "./img/placeholder8.png" },
+    { id: 9, text: "Does the individual have an unusual tone of voice (e.g., very flat, robotic, or high-pitched)?", img: "./img/placeholder9.png" },
+    { id: 10, text: "Does the individual display repetitive movements, such as hand-flapping, rocking, or spinning?", img: "./img/placeholder10.png" },
+    { id: 11, text: "Does the individual have intense or obsessive interests in specific topics or objects?", img: "./img/placeholder11.png" },
+    { id: 12, text: "Does the individual get upset or anxious when their routine is disrupted?", img: "./img/placeholder12.png" },
+    { id: 13, text: "Does the individual insist on doing things in a very specific way?", img: "./img/placeholder13.png" },
+    { id: 14, text: "Is the individual overly sensitive to lights, sounds, textures, or smells?", img: "./img/placeholder14.png" },
+    { id: 15, text: "Does the individual seem to seek out unusual sensory experiences (e.g., staring at moving objects, spinning, or smelling things frequently)?", img: "./img/placeholder15.png" },
 ];
 
 let currentQuestion = 0;
@@ -122,16 +122,49 @@ const calculateResult = (e) => {
 
     if (yesCount <= 4) {
         resultImage = "./img/parent_with_child.png";
-        feedbackMessage = `Hello ${parentName} <p> This is  typical behavior :). </p><p>No immediate concerns. ${childName} is doing great!</p>`;
+        feedbackMessage = 
+        ` <p style="font-size: 1.5rem; font-weight: bold; color: #4caf50; text-shadow: 0px 0px 10px #00ff00;">
+            🌟 Hello ${parentName}! 🌟
+        </p>
+        <p style="font-size: 1.2rem; color: #4caf50; text-shadow: 0px 0px 5px #00ff00;">
+            Likely typical behavior; no immediate concerns.
+        </p>
+        <p style="font-size: 1.2rem; color: #4caf50; text-shadow: 0px 0px 5px #00ff00;">
+            ${childName} is doing wonderfully!
+        </p>
+        <p style="font-size: 1rem; color: #388e3c;">
+            Enjoy your time with ${childName} and keep cherishing these moments.
+        </p>
+    `;
         feedbackColor = "green";
     } else if (yesCount <= 9) {
         resultImage = "./img/female_child.png";
-        feedbackMessage = `Hello ${parentName}. <br> Moderate signs are seen in  ${childName} . </br>
-        <p>Consider seeking professional advice once.</p>`;
+        feedbackMessage = `  <p style="font-size: 1.5rem; font-weight: bold; color: #ff9800; text-shadow: 0px 0px 10px #ffc107;">
+            🌼 Hello ${parentName}! 🌼
+        </p>
+        <p style="font-size: 1.2rem; color: #ff9800; text-shadow: 0px 0px 5px #ffc107;">
+            Moderate signs have been observed in ${childName}.
+        </p>
+        <p style="font-size: 1.2rem; color: #ff9800; text-shadow: 0px 0px 5px #ffc107;">
+            It’s important to monitor behavior closely and consider seeking advice for better support.
+        </p>
+        <p style="font-size: 1.2rem; color: #ff5722;">
+            We’re here to help! Let us guide you with a personalized home plan.
+        </p>
+        `;
         feedbackColor = "orange";
     } else {
         resultImage = "./img/male_child.png";
-        feedbackMessage = ` Hello ${parentName} <br> Strong symptoms  are seen with ${childName}.</br>`;
+        feedbackMessage = `   <p style="font-size: 1.5rem; font-weight: bold; color: #f44336; text-shadow: 0px 0px 10px #ff5252;">
+            ⚠️ Hello ${parentName}, we understand your concern. ⚠️
+        </p>
+        <p style="font-size: 1.2rem; color: #f44336; text-shadow: 0px 0px 5px #ff5252;">
+            Clear signs have been observed in ${childName}.
+        </p>
+        <p style="font-size: 1.2rem; color: #d32f2f;">
+            We are here to support you with a detailed evaluation and tailored intervention plan.
+        </p>
+        `;
         feedbackColor = "red";
     }
 
