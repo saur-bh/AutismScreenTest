@@ -183,7 +183,7 @@ const calculateResult = (e) => {
                  `
                     : `
                      <p class="mt-6 text-2xl font-bold text-blue-600">
-    🌟 <span style="color: #ff5722;">Book Detailed Evaluation of ${childName}</span> 🌟
+    🌟 <span style="color: #ff5722;">Book Detailed Evaluation</span> 🌟
 </p>
             <p class="mt-2 text-lg text-gray-600">Let’s make a difference together!. WhatsApp to begin his journey with us</p>
             <div class="flex flex-col sm:flex-row justify-between items-center mt-6 space-y-4 sm:space-y-0 sm:space-x-4">
