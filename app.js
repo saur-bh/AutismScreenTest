@@ -1,21 +1,22 @@
 const app = document.getElementById("app");
+
 const questions = [
-    { id: 1, text: "Does your child often fail to pay close attention to details?", img: "./img/placeholder1.png" },
-    { id: 2, text: "Does your child often have difficulty staying focused?", img: "./img/placeholder2.png" },
-    { id: 3, text: "Does your child often seem not to listen when spoken to directly?", img: "./img/placeholder3.png" },
-    { id: 4, text: "Does your child often start tasks but fail to complete them?", img: "./img/placeholder4.png" },
-    { id: 5, text: "Does your child often lose things necessary for tasks?", img: "./img/placeholder5.png" },
-    { id: 6, text: "Is your child often easily distracted by noises or other things happening around them?", img: "./img/placeholder6.png" },
-    { id: 7, text: "Does your child frequently fidget with their hands, feet, or squirm in their seat?", img: "./img/placeholder7.png" },
-    { id: 8, text: "Does your child often leave their seat when expected to stay seated?", img: "./img/placeholder8.png" },
-    { id: 9, text: "Does your child often run, climb, or act overly restless in inappropriate situations?", img: "./img/placeholder9.png" },
-    { id: 10, text: "Does your child often seem 'on the go' as if driven by a motor?", img: "./img/placeholder10.png" },
-    { id: 11, text: "Does your child frequently talk excessively?", img: "./img/placeholder11.png" },
-    { id: 12, text: "Does your child often blurt out answers before the question is completed?", img: "./img/placeholder12.png" },
-    { id: 13, text: "Does your child have difficulty waiting their turn in games or group activities?", img: "./img/placeholder13.png" },
-    { id: 14, text: "Does your child interrupt or intrude on others frequently?", img: "./img/placeholder14.png" },
-    { id: 15, text: "Does your child often act without thinking, leading to risky or inappropriate behavior?", img: "./img/placeholder15.png" },
-  ];
+    { id: 1, text: "Does your child often struggle to focus on tasks like studying or even fun activities?", img: "./img/placeholder1.png" },
+    { id: 2, text: "Does your child get easily distracted, like leaving homework unfinished to watch TV or play?", img: "./img/placeholder2.png" },
+    { id: 3, text: "When you talk to your child, do they often seem to be in their own world, not paying attention?", img: "./img/placeholder3.png" },
+    { id: 4, text: "Does your child often start a drawing or project but lose interest halfway?", img: "./img/placeholder4.png" },
+    { id: 5, text: "Do you frequently find your child misplacing important things, like pencils or school notebooks?", img: "./img/placeholder5.png" },
+    { id: 6, text: "Does your child get distracted by small things, like noises or people walking by?", img: "./img/placeholder6.png" },
+    { id: 7, text: "Does your child often fidget with their hands, legs, or keep adjusting their posture when sitting?", img: "./img/placeholder7.png" },
+    { id: 8, text: "Does your child frequently get up during class or meals, even when asked to stay seated?", img: "./img/placeholder8.png" },
+    { id: 9, text: "Does your child often run around or climb furniture, even when it’s not the right time or place?", img: "./img/placeholder9.png" },
+    { id: 10, text: "Do you feel like your child is always on the go, as if they have unlimited energy?", img: "./img/placeholder10.png" },
+    { id: 11, text: "Does your child talk so much that it’s hard for others to get a word in?", img: "./img/placeholder11.png" },
+    { id: 12, text: "Does your child often blurt out answers in class or interrupt before someone finishes speaking?", img: "./img/placeholder12.png" },
+    { id: 13, text: "Does your child find it hard to wait their turn during games or group activities?", img: "./img/placeholder13.png" },
+    { id: 14, text: "Does your child interrupt conversations or barge into discussions frequently?", img: "./img/placeholder14.png" },
+    { id: 15, text: "Does your child sometimes take risks, like climbing walls or touching things they shouldn’t, without thinking of the consequences?", img: "./img/placeholder15.png" },
+];
 
 let currentQuestion = 0;
 let yesCount = 0;
@@ -125,11 +126,12 @@ const calculateResult = (e) => {
         feedbackColor = "green";
     } else if (yesCount <= 9) {
         resultImage = "./img/female_child.png";
-        feedbackMessage = `Hello ${parentName}. <p>There are some signs of ADHD in ${childName}; </p><p>Consider seeking professional advice once.</p>`;
+        feedbackMessage = `Hello ${parentName}. <br> Moderate signs are seen in  ${childName} . </br>
+        <p>Consider seeking professional advice once.</p>`;
         feedbackColor = "orange";
     } else {
         resultImage = "./img/male_child.png";
-        feedbackMessage = ` Hello ${parentName} <p> Strong signs of ADHD is seen in ${childName}.</p> <p>Seek professional advice immediately.</p>`;
+        feedbackMessage = ` Hello ${parentName} <br> Strong  symptoms of autism  is seen with ${childName}.</br> <p>Seek professional advice immediately.</p>`;
         feedbackColor = "red";
     }
 
@@ -144,16 +146,21 @@ const calculateResult = (e) => {
             <p class="mt-2 text-lg text-gray-600">Follow us on Instagram for more resources and updates.</p>
             <div class="flex flex-col sm:flex-row justify-between items-center mt-6 space-y-4 sm:space-y-0 sm:space-x-4">
                 <button onclick="retryQuiz()" class="w-full sm:w-auto bg-gray-500 text-white px-6 py-2 rounded-lg">Retry Quiz</button>
-                    <a href="https://www.instagram.com/aaryavartcenterforautism/" target="_blank" class="w-full sm:w-auto bg-pink-500 text-white px-6 py-2 rounded-lg">Instagram</a>`
+                    <a href="https://www.instagram.com/aaryavartcenterforautism/" target="_blank" class="w-full sm:w-auto bg-pink-500 text-white px-6 py-2 rounded-lg">Instagram</a> 
+                 `
                     : `
                      <p class="mt-6 text-2xl font-bold text-gray-800">🌟 Get a Detailed Evaluation for  ${childName}🌟</p>
-            <p class="mt-2 text-lg text-gray-600">Click WhatsApp to begin your journey with us. \n Let’s make a difference together!.</p>
+            <p class="mt-2 text-lg text-gray-600">Let’s make a difference together!. WhatsApp to begin his journey with us</p>
             <div class="flex flex-col sm:flex-row justify-between items-center mt-6 space-y-4 sm:space-y-0 sm:space-x-4">
                 <button onclick="retryQuiz()" class="w-full sm:w-auto bg-gray-500 text-white px-6 py-2 rounded-lg">Retry Quiz</button>
                         <a href="https://wa.me/917607293336" target="_blank" class="w-full sm:w-auto bg-green-500 text-white px-6 py-2 rounded-lg">WhatsApp</a>
-
+                
                     `}
             </div>
+                  <p class="mt-6 text-sm text-gray-600">
+                Disclaimer: This quiz is a general screening tool and not a substitute for professional diagnosis. 
+                For a proper assessment, please consult a specialist.
+            </p>
         </div>
     `;
 };
