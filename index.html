@@ -7,8 +7,19 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-violet-200 flex items-center justify-center min-h-screen" style="background-color: hwb(38 69% 6%);">
-    <div id="app" class="w-full max-w-sm sm:max-w-md lg:max-w-xl mx-auto bg-amber-200 rounded-lg shadow-lg p-6 sm:p-8" style="background-color: hwb(259 73% 13% / 0.816);">
-        <!-- Content dynamically rendered by app.js -->
+    <div class="flex flex-col items-center space-y-4 w-full max-w-sm sm:max-w-md lg:max-w-xl mx-auto">
+        <!-- Logo and Title Section -->
+        <div class="text-center">
+            <a href="https://www.aaryavart.org/" target="_blank">
+                <img src="./img/aryavart-logo-new.png" alt="Aaryavart Logo" class="mx-auto w-32 h-32">
+            </a>
+            <p class="text-2xl font-bold text-violet-700 mt-4">Aaryavart Centre for Autism and Special Needs Foundation</p>
+        </div>
+
+        <!-- App Content Section -->
+        <div id="app" class="w-full bg-amber-200 rounded-lg shadow-lg p-6 sm:p-8" style="background-color: hwb(259 73% 13% / 0.816);">
+            <!-- Content dynamically rendered by app.js -->
+        </div>
     </div>
     <script src="./app.js"></script>
 </body>
