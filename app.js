@@ -240,6 +240,7 @@ const sendDataToGoogleSheet = async (data) => {
         const response = await fetch(scriptURL, {
             method: 'POST',
             body: JSON.stringify(data),
+            mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json',
             },
