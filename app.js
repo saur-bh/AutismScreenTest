@@ -235,7 +235,7 @@ sendDataToGoogleSheet(data);
     calculateResult(e);
 };
 const sendDataToGoogleSheet = async (data) => {
-    const scriptURL = 'https://script.google.com/a/macros/aaryavart.org/s/AKfycbwLT_kkufOFq433F7ZiqTbT5NhjP4rcvu720ti06dhSbPTYloArSYIv8wciB2opXWfOcA/exec'; // Replace with your Apps Script Web App URL
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwLT_kkufOFq433F7ZiqTbT5NhjP4rcvu720ti06dhSbPTYloArSYIv8wciB2opXWfOcA/exec'; // Replace with your Apps Script Web App URL
     try {
         const response = await fetch(scriptURL, {
             method: 'POST',
