@@ -235,45 +235,36 @@ sendDataToGoogleSheet(data);
     calculateResult(e);
 };
 const sendDataToGoogleSheet = async (data) => {
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwLT_kkufOFq433F7ZiqTbT5NhjP4rcvu720ti06dhSbPTYloArSYIv8wciB2opXWfOcA/exec'; // Replace with your Apps Script Web App URL
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwLT_kkufOFq433F7ZiqTbT5NhjP4rcvu720ti06dhSbPTYloArSYIv8wciB2opXWfOcA/exec';
     try {
-        const response = await fetch(scriptURL, {
-            method: 'POST',
-            body: JSON.stringify(data),
-            mode: 'no-cors',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-        const result = await response.json();
-        if (result.status === 'success') {
-            console.log('Data saved successfully!');
-        } else {
-            console.log('Failed to save data.');
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        console.log('An error occurred. Please try again.');
-    }
-
-    try {
-    const response = await fetch(scriptURL, {
+      const response = await fetch(scriptURL, {
         method: 'POST',
-        body: JSON.stringify(data),
+        mode: 'no-cors',
         headers: {
-            'Content-Type': 'application/json',
+          'Content-Type': 'application/json',
         },
-    });
-    const result = await response.json();
-    if (result.status === 'success') {
+        body: JSON.stringify(data),
+      });
+  
+      const text = await response.text();
+      console.log('Raw Response:', text);
+  
+      // Safely parse JSON
+      let result;
+      try {
+        result = JSON.parse(text);
+      } catch (error) {
+        throw new Error('Invalid JSON response');
+      }
+  
+      if (result.status === 'success') {
         console.log('Data saved successfully!');
-    } else {
-        console.log('Failed to save data:', result.message);
+      } else {
+        console.error('Failed to save data:', result.message);
+      }
+    } catch (error) {
+      console.error('Error:', error);
     }
-} catch (error) {
-    console.error('Error:', error);
-    console.log('An error occurred. Please try again.');
-}
-};
+  };
 // Start the quiz
 renderQuestion();
