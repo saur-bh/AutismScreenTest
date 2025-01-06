@@ -1,21 +1,21 @@
 const app = document.getElementById("app");
 
 const questions = [
-    { id: 1, text: "Does the individual avoid making eye contact?", img: "./img/placeholder1.png" },
-    { id: 2, text: "Does the individual prefer to be alone rather than engaging with others?", img: "./img/placeholder2.png" },
-    { id: 3, text: "Does the individual have difficulty understanding others’ facial expressions or body language?", img: "./img/placeholder3.png" },
-    { id: 4, text: "Does the individual rarely respond when their name is called?", img: "./img/placeholder4.png" },
-    { id: 5, text: "Does the individual seem uninterested in playing with or talking to peers?", img: "./img/placeholder5.png" },
-    { id: 6, text: "Does the individual struggle to start or maintain conversations?", img: "./img/placeholder6.png" },
-    { id: 7, text: "Does the individual repeat words or phrases they hear (echolalia)?", img: "./img/placeholder7.png" },
-    { id: 8, text: "Does the individual use gestures less frequently to communicate (e.g., pointing, waving)?", img: "./img/placeholder8.png" },
-    { id: 9, text: "Does the individual have an unusual tone of voice (e.g., very flat, robotic, or high-pitched)?", img: "./img/placeholder9.png" },
-    { id: 10, text: "Does the individual display repetitive movements, such as hand-flapping, rocking, or spinning?", img: "./img/placeholder10.png" },
-    { id: 11, text: "Does the individual have intense or obsessive interests in specific topics or objects?", img: "./img/placeholder11.png" },
-    { id: 12, text: "Does the individual get upset or anxious when their routine is disrupted?", img: "./img/placeholder12.png" },
-    { id: 13, text: "Does the individual insist on doing things in a very specific way?", img: "./img/placeholder13.png" },
-    { id: 14, text: "Is the individual overly sensitive to lights, sounds, textures, or smells?", img: "./img/placeholder14.png" },
-    { id: 15, text: "Does the individual seem to seek out unusual sensory experiences (e.g., staring at moving objects, spinning, or smelling things frequently)?", img: "./img/placeholder15.png" },
+    { id: 1, text: "Have you observed your child avoiding eye contact, even during familiar situations at home or with relatives?", img: "./img/placeholder1.png" },
+    { id: 2, text: "Does your child often prefer being alone rather than playing with siblings, cousins, or friends in the neighborhood?", img: "./img/placeholder2.png" },
+    { id: 3, text: "Does your child struggle to understand facial expressions or body language, such as a smile or a gesture like waving goodbye?", img: "./img/placeholder3.png" },
+    { id: 4, text: "When you or others call out your child’s name, do they often not respond or seem distracted?", img: "./img/placeholder4.png" },
+    { id: 5, text: "Have you noticed your child showing little interest in talking to or playing with children of their age group?", img: "./img/placeholder5.png" },
+    { id: 6, text: "Does your child face difficulty starting or continuing a conversation, even with close family members?", img: "./img/placeholder6.png" },
+    { id: 7, text: "Does your child repeat words or phrases they hear, such as lines from a favorite cartoon or song?", img: "./img/placeholder7.png" },
+    { id: 8, text: "Does your child use gestures, like pointing to objects or waving, less often while trying to communicate?", img: "./img/placeholder8.png" },
+    { id: 9, text: "Have you observed your child speaking in an unusual way, such as with a very flat, robotic, or high-pitched voice?", img: "./img/placeholder9.png" },
+    { id: 10, text: "Does your child often repeat movements like hand-flapping, rocking, or spinning, even when sitting quietly?", img: "./img/placeholder10.png" },
+    { id: 11, text: "Does your child seem deeply interested or focused on specific objects or topics, such as a particular toy or a favorite story?", img: "./img/placeholder11.png" },
+    { id: 12, text: "When daily routines like meal times or outings are changed, does your child become upset or anxious?", img: "./img/placeholder12.png" },
+    { id: 13, text: "Does your child insist on doing certain activities, such as arranging toys or eating snacks, in a very specific way?", img: "./img/placeholder13.png" },
+    { id: 14, text: "Is your child highly sensitive to bright lights, loud sounds, certain fabrics, or strong smells, reacting strongly to them?", img: "./img/placeholder14.png" },
+    { id: 15, text: "Does your child enjoy unusual activities like staring at spinning objects, smelling items, or watching moving patterns for a long time?", img: "./img/placeholder15.png" },
 ];
 
 let currentQuestion = 0;
